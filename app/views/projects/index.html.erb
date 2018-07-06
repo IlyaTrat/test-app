@@ -1,7 +1,24 @@
-<h1>TestApp</h1>
-<% @projects.each do |project| %>
-    <h3><%= project.name %></h3>
-    <p><%= project.summary %></p>
-    <p><%= project.start_date %></p>
-    <p><%= project.end_date %></p>
-<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Summary</th>
+            <th scope="col">Start date</th>
+            <th scope="col">End date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tboby>
+        <% @projects.each do |project| %>
+        <tr>
+            <td><%= project.name %></td>
+            <td><%= project.summary %></td>
+            <td><%= project.start_date %></td>
+            <td><%= project.end_date %></td>
+            <td>
+                <%= link_to "Details", project_path(project), :class => 'btn btn-outline-secondary' %>
+            </td>
+        </tr>
+        <% end %>
+    </tboby>    
+</table>
