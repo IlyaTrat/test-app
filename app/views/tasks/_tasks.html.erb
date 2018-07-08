@@ -1,0 +1,26 @@
+<h3>Tasks</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Responsible</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tboby>
+        <% @project.tasks.each do |task| %>
+        <tr>
+            <td><%= task.title %></td>
+            <td><%= task.description %></td>
+            <td><%= task.status %></td>
+            <td><%= task.user.firstname + ' ' + task.user.lastname %></td>
+            <td>
+                <%= link_to "Edit", edit_project_task_path(project_id: @project.id, id: task.id), :class => 'btn btn-outline-secondary' %>
+                <%= link_to "Delete", project_task_path(project_id: @project.id, id: task.id), method: :delete, data: {confirm: "Delete task?"}, :class => 'btn btn-outline-danger' %>
+            </td>
+        </tr>
+        <% end %>
+    </tboby>    
+</table>

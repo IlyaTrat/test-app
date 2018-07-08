@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+    before_action :authenticate_user!, :except => [:index, :show]
+    
     def index
         @projects = Project.all
     end
@@ -37,6 +39,9 @@ class ProjectsController < ApplicationController
     
     def destroy
         @project = Project.find(params[:id])
+        @tasks = @project.tasks.each do |task|
+            task.destroy
+        end
         @project.destroy
         
         redirect_to projects_path
