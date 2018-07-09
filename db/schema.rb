@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2018_07_06_175609) do
     t.string "firstname"
     t.string "lastname"
     t.boolean "admin", default: false
-    t.index ["admin"], name: "index_users_on_admin", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

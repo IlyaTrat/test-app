@@ -12,7 +12,7 @@
         <% @projects.each do |project| %>
         <tr>
             <td><%= project.name %></td>
-            <td><%= project.summary %></td>
+            <td><%= project.summary.truncate(100) %></td>
             <td><%= project.start_date %></td>
             <td><%= project.end_date %></td>
             <td>
